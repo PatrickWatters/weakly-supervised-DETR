@@ -1,9 +1,9 @@
 train_imgs_dir: data/fgvc-aircraft-2013b/images
-train_anns: data/fgvc-aircraft-2013b/annotations/trainval.json
+train_anns: data/fgvc-aircraft-2013b/annotations/trainval_small.json
 val_imgs_dir: data/fgvc-aircraft-2013b/images
-val_anns: data/fgvc-aircraft-2013b/annotations/test.json
+val_anns: data/fgvc-aircraft-2013b/annotations/test_small.json
 test_imgs_dir: data/fgvc-aircraft-2013b/images
-test_anns: data/fgvc-aircraft-2013b/annotations/test.json
+test_anns: data/fgvc-aircraft-2013b/annotations/test_small.json
 infer_imgs_dir: ""
 save_dir: ""
 
