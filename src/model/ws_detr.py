@@ -362,10 +362,11 @@ class WS_DETR(pl.LightningModule):
         for i in training_step_outputs:
             tensorlist.append(i['loss'])
 
-        print(training_step_outputs)
+        #print(training_step_outputs)
         # Gathers loss across GPUs.
         loss = torch.stack(tensorlist).mean()
-        loss = self.all_gather(loss).mean.item()
+        #loss = self.all_gather(loss)
+        #loss = loss.mean.item()
 
         if self.trainer.is_global_zero:
             try:
