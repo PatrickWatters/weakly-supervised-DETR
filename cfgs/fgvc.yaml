@@ -9,7 +9,7 @@ save_dir: ""
 
 task: train
 
-batch_size: 1
+batch_size: 2
 class_agnostic_weights: ckpts/deformable-detr_fsod-800_class-agnostic_50epochs.pth
 classes: 100
 dropout: 0.1
@@ -23,7 +23,7 @@ resume_weights: False
 sampler: False
 sparse: True
 supervised: False
-viz_test_batches: 20
+viz_test_batches: 1
 weights: ckpts/deformable-detr_fsod-800_50epochs.pth
 workers: 4
 
@@ -50,7 +50,7 @@ position_embedding: "sine"
 position_embedding_scale: 6.283185307179586 # 2 * pi
 queries: 300
 
-accumulate_grad_batches: 2
+accumulate_grad_batches: 4
 deterministic: True
 gpus: 1
 max_epochs: 1
