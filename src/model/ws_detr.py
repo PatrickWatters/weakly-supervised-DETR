@@ -360,6 +360,7 @@ class WS_DETR(pl.LightningModule):
 
 
         print(type(training_step_outputs[0]))
+        print(type(training_step_outputs[0].keys()))
 
         print(training_step_outputs)
         # Gathers loss across GPUs.
