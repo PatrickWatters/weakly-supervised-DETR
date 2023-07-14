@@ -371,7 +371,7 @@ class WS_DETR(pl.LightningModule):
         if self.trainer.is_global_zero:
             try:
                 # Logs to AzureML.
-                writer = Run.get_context(allow_offline=False)
+                writer = Run.get_context(allow_offline=True)
                 writer.log("Train Loss", loss)
             except:
                 pass
@@ -448,7 +448,7 @@ class WS_DETR(pl.LightningModule):
                 print(coco_prints.getvalue().strip("\n"))
 
                 # Logs to AzureML.
-                writer = Run.get_context(allow_offline=False)
+                writer = Run.get_context(allow_offline=True)
                 writer.log("Val Loss", loss)
                 writer.log("mAP", stats[0])
                 writer.log("AP50", stats[1])
