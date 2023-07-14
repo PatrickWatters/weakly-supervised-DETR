@@ -359,7 +359,7 @@ class WS_DETR(pl.LightningModule):
         """Computes and logs epoch training loss."""
         results = []
         losses = []
-        for result, loss in training_step_outputs:
+        for result, loss in training_step_outputs[0]:
             results.extend(result)
             losses.append(loss)
 
