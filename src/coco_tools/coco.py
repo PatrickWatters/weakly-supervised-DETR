@@ -198,7 +198,6 @@ def coco_loader(args, task="train"):
                 " implemented for multi-GPU training."
             )
     #sampler=DistributedSampler(dataset, shuffle=True)
-    shuffle = False
     loader = DataLoader(
         dataset,
         batch_size=args.batch_size,
