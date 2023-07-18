@@ -227,6 +227,7 @@ def gather_coco_results_across_gpus(results):
     print('Starting collating results across multiple GPUs')
 
     coco_results = {}
+    '''
     for result in results:
         img_results = {}
         if len(result["image_id"]) > 1:
@@ -243,6 +244,7 @@ def gather_coco_results_across_gpus(results):
                 "preds": result["preds"],
             }
         coco_results.update(img_results)
+    '''
     print('Finished collating results across multiple GPUs')
 
     return coco_results
