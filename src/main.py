@@ -121,7 +121,7 @@ def load_trainer(args):
     #callbacks = [checkpointer, progress_bar]
     callbacks = [progress_bar]
     trainer = Trainer.from_argparse_args(args)
-    trainer.logger =[tb_logger, csvlogger]
+    trainer.logger =[tb_logger]
     return trainer
 
 def main(args):
