@@ -1,9 +1,9 @@
 train_imgs_dir: /home/project2reu/data/fgvc-aircraft-2013b/images
-train_anns: /home/project2reu/data/fgvc-aircraft-2013b/annotations/trainval.json
+train_anns: /home/project2reu/data/fgvc-aircraft-2013b/annotations/trainval_small.json
 val_imgs_dir: /home/project2reu/data/fgvc-aircraft-2013b/images
-val_anns: /home/project2reu/data/fgvc-aircraft-2013b/annotations/test.json
+val_anns: /home/project2reu/data/fgvc-aircraft-2013b/annotations/test_small.json
 test_imgs_dir: /home/project2reu/data/fgvc-aircraft-2013b/images
-test_anns: /home/project2reu/data/fgvc-aircraft-2013b/annotations/test.json
+test_anns: /home/project2reu/data/fgvc-aircraft-2013b/annotations/test_small.json
 infer_imgs_dir: ""
 save_dir: ""
 
