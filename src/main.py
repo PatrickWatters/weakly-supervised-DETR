@@ -23,7 +23,7 @@ from coco_tools.coco import coco_loader
 from coco_tools.infer import infer_loader
 from model.ws_detr import WS_DETR
 from utils.misc import get_state_dict_from_checkpoint
-
+from pytorch_lightning.loggers import CSVLogger
 # Prevents PIL from throwing invalid error on large image files.
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
@@ -105,6 +105,7 @@ def load_trainer(args):
         save_last=True,
     )
 
+    csvlogger = CSVLogger("logs")
     # Instantiates progress bar. Changing refresh rate is useful when
     # stdout goes to a logfile (e.g., on cluster). 1 is normal and 0 disables.
     progress_bar = TQDMProgressBar(refresh_rate=args.refresh_rate)
@@ -113,8 +114,10 @@ def load_trainer(args):
     args.strategy = "ddp" if args.gpus > 1 else None
     #args.strategy = None
     # Instantiates PL Trainer using args.
-    callbacks = [checkpointer, progress_bar]
+    #callbacks = [checkpointer, progress_bar]
+    callbacks = [progress_bar]
     trainer = Trainer.from_argparse_args(args, callbacks=callbacks)
+    trainer.logger = csvlogger
 
     return trainer
 
