@@ -223,6 +223,8 @@ def compute_accuracy(results, coco_groundtruth, thresh=0.1):
 
 def gather_coco_results_across_gpus(results):
     """Collates COCO results across multiple GPUs for evaluation."""
+    
+    print('Starting collating results across multiple GPUs')
 
     coco_results = {}
     for result in results:
@@ -241,6 +243,7 @@ def gather_coco_results_across_gpus(results):
                 "preds": result["preds"],
             }
         coco_results.update(img_results)
+    print('Finished collating results across multiple GPUs')
 
     return coco_results
 
