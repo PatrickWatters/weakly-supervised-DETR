@@ -107,9 +107,9 @@ def load_trainer(args):
         save_last=True,
     )
 
-    tb_logger = TensorBoardLogger(save_dir="lightning_logs/")
+    tb_logger = TensorBoardLogger(save_dir="logs")
 
-    csvlogger = CSVLogger("csvlogs")
+    csvlogger = CSVLogger("logs")
     # Instantiates progress bar. Changing refresh rate is useful when
     # stdout goes to a logfile (e.g., on cluster). 1 is normal and 0 disables.
     progress_bar = TQDMProgressBar(refresh_rate=args.refresh_rate)
@@ -121,7 +121,7 @@ def load_trainer(args):
     #callbacks = [checkpointer, progress_bar]
     #callbacks = [progress_bar]
     trainer = Trainer.from_argparse_args(args)
-    trainer.logger = [csvlogger]
+    trainer.logger = [csvlogger,tb_logger]
     return trainer
 
 def main(args):
