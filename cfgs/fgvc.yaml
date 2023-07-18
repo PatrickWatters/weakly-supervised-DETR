@@ -54,5 +54,5 @@ accumulate_grad_batches: 2
 deterministic: True
 gpus: 2
 max_epochs: 1
-num_sanity_val_steps: 0
+num_sanity_val_steps: 2
 accelerator=: 'dp'
