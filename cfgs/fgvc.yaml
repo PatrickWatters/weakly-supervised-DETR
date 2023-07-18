@@ -55,3 +55,4 @@ deterministic: True
 gpus: 2
 max_epochs: 1
 num_sanity_val_steps: 0
+accelerator=: 'dp'
