@@ -9,7 +9,7 @@ save_dir: ""
 
 task: train
 
-batch_size: 2
+batch_size: 1
 class_agnostic_weights: ckpts/deformable-detr_fsod-800_class-agnostic_50epochs.pth
 classes: 100
 dropout: 0.1
