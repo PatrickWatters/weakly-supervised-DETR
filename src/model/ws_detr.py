@@ -438,12 +438,12 @@ class WS_DETR(pl.LightningModule):
         )
 
         # Logs to PL logger and syncs across GPUs.
-        self.log("val_loss", loss, sync_dist=True,rank_zero_only=True)
-        self.log("mAP", stats[0], sync_dist=True,rank_zero_only=True)
-        self.log("AP50", stats[1], sync_dist=True,rank_zero_only=True)
-        self.log("AP75", stats[2], sync_dist=True,rank_zero_only=True)
-        self.log("Top1 Acc", top1_acc, sync_dist=True,rank_zero_only=True)
-        self.log("Top5 Acc", top5_acc, sync_dist=True,rank_zero_only=True)
+        self.log("val_loss", loss, sync_dist=True)
+        self.log("mAP", stats[0], sync_dist=True)
+        self.log("AP50", stats[1], sync_dist=True)
+        self.log("AP75", stats[2], sync_dist=True)
+        self.log("Top1 Acc", top1_acc, sync_dist=True)
+        self.log("Top5 Acc", top5_acc, sync_dist=True)
 
         if self.trainer.is_global_zero:
             try:
