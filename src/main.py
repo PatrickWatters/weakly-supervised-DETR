@@ -118,7 +118,6 @@ def load_trainer(args):
     callbacks = [progress_bar]
     trainer = Trainer.from_argparse_args(args, callbacks=callbacks)
     trainer.logger = csvlogger
-
     return trainer
 
 def main(args):
