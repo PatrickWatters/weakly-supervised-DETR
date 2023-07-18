@@ -171,7 +171,7 @@ def main(args):
     trainer = load_trainer(args)
         
     if args.task == "train":
-        trainer.fit(model, train_loader)
+        trainer.fit(model, train_loader, val_loader)
     elif args.task == "test":
         trainer.test(model, val_loader)
     elif args.task == "infer":
