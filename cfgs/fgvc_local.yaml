@@ -50,8 +50,8 @@ position_embedding: "sine"
 position_embedding_scale: 6.283185307179586 # 2 * pi
 queries: 300
 
-accumulate_grad_batches: 2
+accumulate_grad_batches: 1
 deterministic: True
-gpus: 0
+gpus: 2
 max_epochs: 1
 num_sanity_val_steps: 0
