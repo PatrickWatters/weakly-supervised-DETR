@@ -206,6 +206,7 @@ def coco_loader(args, task="train"):
         shuffle=shuffle,
         drop_last = True
     )
+    print(len(loader.sampler))
 
     return loader
 
