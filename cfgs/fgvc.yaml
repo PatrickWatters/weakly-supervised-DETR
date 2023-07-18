@@ -25,7 +25,7 @@ sparse: True
 supervised: False
 viz_test_batches: 1
 weights: ckpts/deformable-detr_fsod-800_50epochs.pth
-workers: 4
+workers: 2
 
 lr_backbone: 2e-5
 lr_detr: 2e-4
