@@ -6,6 +6,8 @@ import json
 # Imports PyTorch packages.
 import torch
 from torch.utils.data import DataLoader, WeightedRandomSampler
+from torch.utils.data import DataLoader, DistributedSampler
+
 from torchvision.datasets.coco import CocoDetection as TorchvisionCocoDetection
 
 # Imports other packages.
@@ -195,6 +197,7 @@ def coco_loader(args, task="train"):
                 "Balanced random sampler is not"
                 " implemented for multi-GPU training."
             )
+    sampler=DistributedSampler(dataset, shuffle=True)
 
     loader = DataLoader(
         dataset,
