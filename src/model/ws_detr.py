@@ -412,13 +412,17 @@ class WS_DETR(pl.LightningModule):
             results.extend(result)
             losses.append(loss)
 
+        print('Gather loss across GPUs.')
         # Gathers loss across GPUs.
         loss = torch.stack(losses).mean()
         loss = self.all_gather(loss).mean().item()
-
+        
+        print('Gather results across GPUs.')
         # Gathers COCO results across GPUs.
         results = self.all_gather(results)
         coco_results = gather_coco_results_across_gpus(results)
+        
+        print('Performs COCO evaluation')
 
         # Performs COCO evaluation while suppressing prints so
         # it doesn't print on every GPU. I tried doing evaluation
