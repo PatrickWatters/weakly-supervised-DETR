@@ -420,9 +420,9 @@ class WS_DETR(pl.LightningModule):
         print('Gather results across GPUs.')
         # Gathers COCO results across GPUs.
         results = self.all_gather(results)
-
-        coco_results = gather_coco_results_across_gpus(results)
-        
+        print('results', results)
+        #coco_results = gather_coco_results_across_gpus(results)
+        coco_results = results
         print('Performs COCO evaluation')
 
         # Performs COCO evaluation while suppressing prints so
