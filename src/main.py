@@ -24,6 +24,8 @@ from coco_tools.infer import infer_loader
 from model.ws_detr import WS_DETR
 from utils.misc import get_state_dict_from_checkpoint
 from pytorch_lightning.loggers import CSVLogger
+from pytorch_lightning.loggers.tensorboard import TensorBoardLogger
+
 # Prevents PIL from throwing invalid error on large image files.
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
@@ -105,7 +107,9 @@ def load_trainer(args):
         save_last=True,
     )
 
-    csvlogger = CSVLogger("logs")
+    tb_logger = TensorBoardLogger(save_dir="lightning_logs/")
+
+    csvlogger = CSVLogger("csvlogs")
     # Instantiates progress bar. Changing refresh rate is useful when
     # stdout goes to a logfile (e.g., on cluster). 1 is normal and 0 disables.
     progress_bar = TQDMProgressBar(refresh_rate=args.refresh_rate)
@@ -117,7 +121,7 @@ def load_trainer(args):
     #callbacks = [checkpointer, progress_bar]
     callbacks = [progress_bar]
     trainer = Trainer.from_argparse_args(args)
-    trainer.logger = csvlogger
+    trainer = Trainer(logger=[tb_logger, csvlogger])
     return trainer
 
 def main(args):
