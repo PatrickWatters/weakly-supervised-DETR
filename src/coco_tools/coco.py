@@ -204,6 +204,7 @@ def coco_loader(args, task="train"):
         pin_memory=True,
         sampler=sampler,
         shuffle=shuffle,
+        drop_last = True
     )
 
     return loader
