@@ -197,7 +197,7 @@ def coco_loader(args, task="train"):
                 "Balanced random sampler is not"
                 " implemented for multi-GPU training."
             )
-    sampler=DistributedSampler(dataset, shuffle=True)
+    #sampler=DistributedSampler(dataset, shuffle=True)
 
     loader = DataLoader(
         dataset,

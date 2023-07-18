@@ -122,7 +122,7 @@ def load_trainer(args):
     #callbacks = [progress_bar]
     trainer = Trainer.from_argparse_args(args)
     trainer.logger = csvlogger
-    trainer.replace_ddp_sampler=False
+    #trainer.replace_ddp_sampler=False
     return trainer
 
 def main(args):
