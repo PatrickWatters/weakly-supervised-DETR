@@ -146,7 +146,7 @@ def main(args):
         val_loader = coco_loader(args, task="val")
         coco_groundtruth = val_loader.dataset.coco
         print('length of train sampler', len(train_loader.sampler))
-        print('length of val sampler', len(train_loader.sampler))
+        print('length of val sampler', len(val_loader.sampler))
 
     elif args.task == "test":
         val_loader = coco_loader(args, task="test")
